@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Box, BoxProps } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+import { FC } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const MotionBox = motion<BoxProps>(Box);
+
+const App: FC = () => (
+  <MotionBox
+    boxSize="40px"
+    bg="red.300"
+    drag="x"
+    dragConstraints={{ left: -100, right: 100 }}
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }}
+  />
+);
 
 export default App;
